@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+#SBATCH -J celera_assembly
+#SBATCH -N 20
+
+module load wgs/8.3rc2
+
+#Insert size is fragmentation size, make sure names match for the -d and -p. RICK.spec file is provided in this project. Do not forget your .frg file
+
+crun.wgs fastqToCA -insertsize 600 60 -libraryname Smith-Island-celera_3 -technology illumina-long -type sanger -innie -mates Smith-Island_unmapped_rasusa50.fastq > Smith-Island_celera3.frg
+crun.wgs runCA -d Smith-Island-celera_3 -p Smith-Island_celera_3 -s RICK.spec Smith-Island_celera3.frg
