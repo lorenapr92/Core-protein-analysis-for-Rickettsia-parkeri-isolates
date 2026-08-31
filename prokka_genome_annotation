@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+#SBATCH -J prokka_annotation
+#SBATCH -c 20
+
+enable_lmod
+module load prokka
+
+#prokka will annotate your de novo  assemblies. It does not required a closed genome, multiple scaffolds can be annotated
+
+crun.prokka prokka --compliant --force --outdir prokka_denovo/Apalachicola --genus Rickettsia --species parkeri --strain Apalachicola --kingdom Bacteria Apalachicola_celera.scf.fasta
