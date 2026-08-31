@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#This code will get rid of all the protein names from the .core files that contain the orthologs. You need this step to be able to continue the process
+
+for i in *core
+do 
+    grep -v ">" $i > $i.nonames.fasta
+done  
