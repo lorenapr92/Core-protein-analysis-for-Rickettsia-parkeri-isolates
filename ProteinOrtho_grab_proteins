@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -J proteinortho_grabproteins
+
+enable_lmod
+module load proteinortho/6.3.5
+#This loop will use the proteinortho_grab_protein.pl from ProteinOrtho software to find all the orthologs shared among your annotated genomes
+
+for f in *faa
+do 
+   crun.proteinortho proteinortho_grab_proteins.pl -core denovo_assemblies_29_sim95_989.proteinortho.tsv $f > $f.core
+done
