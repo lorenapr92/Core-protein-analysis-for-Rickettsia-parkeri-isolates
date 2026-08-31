@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+#SBATCH -J bbmap_decontamination
+#SBATCH -c 20
+
+enable_lmod
+module load bbmap
+
+#This code will use bbmap to map your sequenced reads to the decontaminant file you generate. Make sure you have out and outu files to keep track of how many reads map and how many did not. 
+
+#crun.bbmap bbmap.sh in=Apalachicola_S1_L001_R1_001_trimmed.fastq in2=Apalachicola_S1_L001_R2_001_trimmed.fastq ref=decontaminants.fasta out=Apalachicola_mapped.fasta outu=Apalachicola_unmapped.fastq
