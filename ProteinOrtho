@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+#SBATCH -J proteinortho_job
+#SBATCH -c 20
+
+enable_lmod
+module load proteinortho/6.3.4
+
+#Make sure all you .faa files from Prokka are in the same folder you will use this script on 
+
+crun.proteinortho proteinortho6.pl *.faa -sim=0.95 -identity=25 -cov=50 -project=denovo_assemblies_29_sim95 -cpus=6
