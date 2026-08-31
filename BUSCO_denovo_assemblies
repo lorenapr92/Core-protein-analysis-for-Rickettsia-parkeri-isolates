@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+#SBATCH -J busco_job
+#SBATCH -c 20
+
+enable_lmod
+module load busco/5.8.2
+
+#This will check how complete your de novo assembly is, have in mind the rickettsiales database does not have any rickettsia parkeri so it fails to find 2 BUSCOs, manual search of an annotate genome will show their presence
+#crun busco -i [SEQUENCE_FILE] -l [LINEAGE] -o [OUTPUT_NAME] -m [MODE] [OTHER OPTIONS]
+
+#crun.busco busco -i /home/spere004/fastq/decontamination/scaffolds_denovo/Apalachicola_celera.scf.fasta -c 8 -m geno -l rickettsiales_odb10 -o Busco_apalachicola
