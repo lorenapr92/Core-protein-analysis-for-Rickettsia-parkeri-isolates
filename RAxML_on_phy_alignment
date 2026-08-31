@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#SBATCH -n 4
+#SBATCH -c 10
+
+#Before running this script, align your isolates and generate ony .phy file. 
+
+module load raxml
+
+srun crun.raxml raxmlHPC-HYBRID-AVX2 -T 8 -s all_denovo_29_694_jtt200.phy -n output_bootstrap_jjt -m PROTGAMMAILGX -f a -x 12345 -p 2352890 -N 500
