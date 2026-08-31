@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This code will get rid of all the protein names from the .core files that contain the orthologs. You need this step to be able to continue the process
+#This code will get rid of all the protein names from the .core files that contain the orthologs. You need this step to be able to continue the process. After the protein names are removed, go back to each file and add the '> NameofBacteria' 
 
 for i in *core
 do 
