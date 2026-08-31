@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+#SBATCH -J bbduk_trimming
+#SBATCH -N 20
+
+#This scrip can be added on for more isolates, make sure you are trimming bad quality reads as it will hamper downstream progress of assembly
+#You will need to trim adapters, this is easy to find using bbduk
+
+#bbduk trimming and cleaning script
+
+enable_lmod
+module load bbmap
+
+#crun.bbmap bbduk.sh in=Arabia-Mt_R1_001.fastq in2=Arabia-Mt_R2_001.fastq ref=ad
+apters.fa out=Arabia-Mt_R1_clean.fastq out2=Arabia-Mt_R2_clean.fastq ktrim=r k=2
+7 mink=11 interleaved=f aqhist=arabia-quality
